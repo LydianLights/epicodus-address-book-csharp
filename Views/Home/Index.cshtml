@@ -1,4 +1,4 @@
-@using AddressBook.Models;
+@using AddressBook.Models.ContactData;
 @model Dictionary<string, object>
 
 @{
@@ -13,6 +13,10 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Address Book</h1>
+  </div>
+  <div class="alert alert-success alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> New contact was added!
   </div>
   @Html.Partial("ContactList", contacts)
 

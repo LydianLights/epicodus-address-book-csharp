@@ -1,6 +1,6 @@
 using System;
 
-namespace AddressBook.Models
+namespace AddressBook.Models.ContactData
 {
     public class Name
     {

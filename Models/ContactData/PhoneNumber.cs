@@ -1,6 +1,6 @@
 using System;
 
-namespace AddressBook.Models
+namespace AddressBook.Models.ContactData
 {
     public class PhoneNumber
     {
@@ -10,7 +10,7 @@ namespace AddressBook.Models
         {
             _number = number;
         }
-        
+
         public string GetAsString()
         {
             return _number;

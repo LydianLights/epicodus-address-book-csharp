@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using AddressBook.Models;
+using AddressBook.Models.ContactData;
 using System.Collections.Generic;
 
 namespace AddressBook.Controllers
