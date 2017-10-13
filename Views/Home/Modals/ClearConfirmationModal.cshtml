@@ -1,7 +1,13 @@
 <script>
   $(document).ready(function() {
+    var clearConfirmed = false;
     $("#clear-confirmation-modal [name=button-confirm]").click(function() {
-      window.location.replace("/contacts/clear");
+      clearConfirmed = true;
+    });
+    $("#clear-confirmation-modal").on("hidden.bs.modal", function() {
+      if (clearConfirmed === true) {
+        window.location.replace("/contacts/clear");
+      }
     });
   });
 </script>
@@ -17,7 +23,7 @@
         <p>All contact data will be deleted.</p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" type="button" name="button-confirm">I'm sure</button>
+        <button class="btn btn-danger" type="button" data-dismiss="modal" name="button-confirm">I'm sure</button>
         <button class="btn btn-info" type="button" data-dismiss="modal" name="button-cancel">Nevermind</button>
       </div>
     </div>
