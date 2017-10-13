@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using AddressBook.Models;
+using System.Collections.Generic;
 
 namespace AddressBook.Controllers
 {
@@ -8,7 +9,9 @@ namespace AddressBook.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-            object model = Contact.GetAllInstances();
+            Dictionary<string, object> model = new Dictionary<string, object>{};
+            model.Add("contacts", Contact.GetAllInstances());
+            model.Add("focused-contact", Contact.GetFocused());
             return View(model);
         }
 
@@ -24,8 +27,9 @@ namespace AddressBook.Controllers
         }
 
         [HttpGet("/contacts/{id}")]
-        public ActionResult ContactDetails()
+        public ActionResult ContactDetails(int id)
         {
+            Contact.SelectById(id);
             return Redirect("/");
         }
     }

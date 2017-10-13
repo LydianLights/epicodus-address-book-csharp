@@ -8,4 +8,8 @@
   </div>
   @Html.Partial("ContactList")
   @Html.Partial("NewContactForm")
+  @if (Model["focused-contact"] != null)
+  {
+    @Html.Partial("ContactDetails")
+  }
 </div>

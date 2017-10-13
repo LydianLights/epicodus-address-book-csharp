@@ -6,6 +6,7 @@ namespace AddressBook.Models
     public class Contact
     {
         private static List<Contact> _instances = new List<Contact>{};
+        private static Contact _currentlyFocused = null;
         private string _name;
         private int _id;
 
@@ -29,9 +30,18 @@ namespace AddressBook.Models
         {
             return _instances[id];
         }
+        public static Contact SelectById(int id)
+        {
+            _currentlyFocused = _instances[id];
+            return _currentlyFocused;
+        }
         public static List<Contact> GetAllInstances()
         {
             return _instances;
+        }
+        public static Contact GetFocused()
+        {
+            return _currentlyFocused;
         }
     }
 }
