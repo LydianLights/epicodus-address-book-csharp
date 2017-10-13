@@ -2,6 +2,7 @@
 @model Contact
 
 <div class="contact-details">
-  <h2>Info:</h2>
-  <p>@Model.GetName()</p>
+  <h2>Contact Info</h2>
+  <h3>Name</h3>
+  <p>@Model.GetName().GetFull()</p>
 </div>

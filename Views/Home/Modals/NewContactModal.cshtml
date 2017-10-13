@@ -17,7 +17,8 @@
 </script>
 
 @{
-  string nameId = "contact-name";
+  string firstNameId = "contact-first-name";
+  string lastNameId = "contact-last-name";
 }
 
 <div id="new-contact-modal" class="modal fade" role="dialog">
@@ -30,8 +31,12 @@
       <div class="modal-body">
         <form action="/contacts/add" method="post">
           <div class="form-group">
-            <label class="form-label" for="@nameId">Name:</label>
-            <input class="form-control" type="text" id="@nameId" name="@nameId" autofocus>
+            <label class="form-label" for="@firstNameId">First Name:</label>
+            <input class="form-control" type="text" id="@firstNameId" name="@firstNameId" autofocus>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="@lastNameId">Last Name:</label>
+            <input class="form-control" type="text" id="@lastNameId" name="@lastNameId">
           </div>
           <button class="btn btn-info" type="submit" name="add-contact-button">Add!</button>
         </form>

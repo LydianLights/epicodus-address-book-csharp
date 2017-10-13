@@ -7,17 +7,17 @@ namespace AddressBook.Models
     {
         private static List<Contact> _instances = new List<Contact>{};
         private static Contact _currentlyFocused = null;
-        private string _name;
+        private Name _name;
         private int _id;
 
-        public Contact(string name)
+        public Contact(Name name)
         {
             _name = name;
             _id = _instances.Count;
             _instances.Add(this);
         }
 
-        public string GetName()
+        public Name GetName()
         {
             return _name;
         }

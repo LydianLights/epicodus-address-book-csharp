@@ -18,10 +18,12 @@ namespace AddressBook.Controllers
         [HttpPost("/contacts/add")]
         public ActionResult AddContact()
         {
-            string name = Request.Form["contact-name"];
-            if (name != "")
+            string firstName = Request.Form["contact-first-name"];
+            string lastName = Request.Form["contact-last-name"];
+            if (firstName != "" && lastName != "")
             {
-                Contact newContact = new Contact(name);
+                Name contactName = new Name(firstName, lastName);
+                Contact newContact = new Contact(contactName);
             }
             return Redirect("/");
         }
