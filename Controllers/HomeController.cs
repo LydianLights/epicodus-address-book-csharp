@@ -8,7 +8,8 @@ namespace AddressBook.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-            return View();
+            object model = Contact.GetAllInstances();
+            return View(model);
         }
 
         [HttpPost("/contacts/add")]
@@ -17,8 +18,14 @@ namespace AddressBook.Controllers
             string name = Request.Form["contact-name"];
             if (name != "")
             {
-                Contact newContact = new Contact(name);                
+                Contact newContact = new Contact(name);
             }
+            return Redirect("/");
+        }
+
+        [HttpGet("/contacts/{id}")]
+        public ActionResult ContactDetails()
+        {
             return Redirect("/");
         }
     }
