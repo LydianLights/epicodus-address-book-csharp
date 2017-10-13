@@ -8,10 +8,6 @@
 
 _This application allows the user to add and remove contacts from a list. Each contact stores information about the person's name, phone number, and address._
 
-## Link
-
-_To use the app, visit https://lydianlights.github.io/address-book-csharp/_
-
 ## Setup/Installation Requirements
 
 _To download and modify the source code of this project, just follow the listed instructions:_
