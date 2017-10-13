@@ -20,10 +20,21 @@ namespace AddressBook.Controllers
         {
             string firstName = Request.Form["contact-first-name"];
             string lastName = Request.Form["contact-last-name"];
-            if (firstName != "" && lastName != "")
+            string streetAddress = Request.Form["contact-street-address"];
+            string city = Request.Form["contact-city"];
+            string state = Request.Form["contact-state"];
+            string zipCode = Request.Form["contact-zip-code"];
+            if (
+                firstName != "" &&
+                lastName != "" &&
+                streetAddress != "" &&
+                city != "" &&
+                state != "" &&
+                zipCode != "")
             {
-                Name contactName = new Name(firstName, lastName);
-                Contact newContact = new Contact(contactName);
+                Name name = new Name(firstName, lastName);
+                Address address = new Address(streetAddress, city, state, zipCode);
+                Contact newContact = new Contact(name, address);
             }
             return Redirect("/");
         }

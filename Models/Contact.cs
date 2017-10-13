@@ -8,11 +8,13 @@ namespace AddressBook.Models
         private static List<Contact> _instances = new List<Contact>{};
         private static Contact _currentlyFocused = null;
         private Name _name;
+        private Address _address;
         private int _id;
 
-        public Contact(Name name)
+        public Contact(Name name, Address address)
         {
             _name = name;
+            _address = address;
             _id = _instances.Count;
             _instances.Add(this);
         }
@@ -20,6 +22,10 @@ namespace AddressBook.Models
         public Name GetName()
         {
             return _name;
+        }
+        public Address GetAddress()
+        {
+            return _address;
         }
         public int GetId()
         {
