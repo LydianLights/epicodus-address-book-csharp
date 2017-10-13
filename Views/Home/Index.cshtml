@@ -10,20 +10,7 @@
   <div class="jumbotron">
     <h1>Address Book</h1>
   </div>
-  @if (@Model.ContactAdded == true)
-  {
-    <div class="alert alert-success alert-dismissable fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> New contact was added!
-    </div>
-  }
-  @if (@Model.ContactsCleared == true)
-  {
-    <div class="alert alert-danger alert-dismissable fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      All contacts removed successfully.
-    </div>
-  }
+  @Html.Partial("ContactListAlerts")
   @Html.Partial("ContactList", @Model.Contacts)
 
   <button class="btn btn-info" type="button" name="add-contact-button" data-toggle="modal" data-target="#new-contact-modal">Add Contact</button>
