@@ -1,8 +1,12 @@
+@{
+  string nameId = "contact-name";
+}
+
 <form id="new-contact-form" action="/contacts/add" method="post">
   <h3>Add a contact:</h3>
   <div class="form-group">
-    <label class="form-label" for="">Name:</label>
-    <input class="form-control" type="text" id="" name="">
+    <label class="form-label" for="@nameId">Name:</label>
+    <input class="form-control" type="text" id="@nameId" name="@nameId" autofocus>
   </div>
-  <button type="submit" name="add-contact-button">Add!</button>
+  <button class="btn" type="submit" name="add-contact-button">Add!</button>
 </form>

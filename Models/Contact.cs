@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AddressBook.Modeels
+namespace AddressBook.Models
 {
     public class Contact
     {
