@@ -27,7 +27,8 @@ _This project makes use of the [ASP .NET](https://docs.microsoft.com/en-us/aspne
 
 ## Known Bugs
 
-* [TODO]
+* _Layout could use some work_
+* _Alerts disappear suddenly when page is reloaded to view a contact_
 
 ### License
 
