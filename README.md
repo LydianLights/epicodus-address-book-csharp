@@ -17,9 +17,9 @@ _To use the app, visit https://lydianlights.github.io/address-book-csharp/_
 _To download and modify the source code of this project, just follow the listed instructions:_
 
 * _Clone the project using the link: `https://github.com/LydianLights/address-book-csharp.git`_
-* _Make sure you have '.NET Core 1.1' installed. If you don't, download both the SDK and the Runtime [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.4-download.md)_
+* _Make sure you have `.NET Core 1.1` installed. If you don't, download both the SDK and the Runtime [here](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.4-download.md)_
 * _Once installed, navigate to the project folder in the console/powershell and run the command `dotnet restore` to fetch the project dependencies_
-* _The server can be compiled and started by using the command `dotnet run`_
+* _The server can be compiled and started by using the command `dotnet run`. It will be hosted at `localhost:5000`_
 
 ## Technologies Used
 
