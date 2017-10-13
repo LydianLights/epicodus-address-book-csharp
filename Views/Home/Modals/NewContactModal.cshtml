@@ -1,0 +1,23 @@
+@{
+  string nameId = "contact-name";
+}
+
+<div id="new-contact-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">Add a new contact</h3>
+      </div>
+      <div class="modal-body">
+        <form class="new-contact-form" action="/contacts/add" method="post">
+          <div class="form-group">
+            <label class="form-label" for="@nameId">Name:</label>
+            <input class="form-control" type="text" id="@nameId" name="@nameId" autofocus>
+          </div>
+          <button class="btn btn-info" type="submit" name="add-contact-button">Add!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

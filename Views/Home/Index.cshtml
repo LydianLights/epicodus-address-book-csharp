@@ -14,18 +14,19 @@
   <div class="jumbotron">
     <h1>Address Book</h1>
   </div>
-  @Html.Partial("Index/ContactList", contacts)
+  @Html.Partial("ContactList", contacts)
 
+  <button class="btn btn-info" type="button" name="add-contact-button" data-toggle="modal" data-target="#new-contact-modal">Add Contact</button>
   @if(contacts.Count > 0)
   {
     <button class="btn btn-danger" type="button" name="clear-button" data-toggle="modal" data-target="#clear-confirmation-modal">Clear All</button>
   }
 
-  @Html.Partial("Index/NewContactForm")
   @if (focusedContact != null)
   {
-    @Html.Partial("Index/ContactDetails", focusedContact)
+    @Html.Partial("ContactDetails", focusedContact)
   }
 </div>
 
 @Html.Partial("Modals/ClearConfirmationModal")
+@Html.Partial("Modals/NewContactModal")
