@@ -1,7 +1,10 @@
+@using AddressBook.Models;
+@model List<Contact>
+
 <div class="contact-list">
   <h2>Contacts:</h2>
   <div class="list-group">
-    @foreach (var contact in Model["contacts"])
+    @foreach (var contact in Model)
     {
       <a href="/contacts/@contact.GetId()" class="list-group-item">@contact.GetName()</a>
     }

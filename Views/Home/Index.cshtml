@@ -1,3 +1,6 @@
+@using AddressBook.Models;
+@model Dictionary<string, object>
+
 @{
   Layout = "_Layout";
 }
@@ -6,10 +9,11 @@
   <div class="jumbotron">
     <h1>Address Book</h1>
   </div>
-  @Html.Partial("ContactList")
-  @Html.Partial("NewContactForm")
+  @Html.Partial("Index/ContactList", Model["contacts"])
+
+  @Html.Partial("Index/NewContactForm")
   @if (Model["focused-contact"] != null)
   {
-    @Html.Partial("ContactDetails")
+    @Html.Partial("Index/ContactDetails", Model["focused-contact"])
   }
 </div>
