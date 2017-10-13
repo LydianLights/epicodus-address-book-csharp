@@ -1,3 +1,11 @@
+<script>
+  $(document).ready(function() {
+    $("#clear-confirmation-modal [name=button-confirm]").click(function() {
+      window.location.replace("/contacts/clear");
+    });
+  });
+</script>
+
 <div id="clear-confirmation-modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -9,12 +17,9 @@
         <p>All contact data will be deleted.</p>
       </div>
       <div class="modal-footer">
-        <a href="/contacts/clear">
-          <button class="btn btn-danger" type="button">I'm sure</button>
-        </a>
-        <button class="btn btn-info" type="button" data-dismiss="modal">Nevermind</button>
+        <button class="btn btn-danger" type="button" name="button-confirm">I'm sure</button>
+        <button class="btn btn-info" type="button" data-dismiss="modal" name="button-cancel">Nevermind</button>
       </div>
     </div>
-
   </div>
 </div>
