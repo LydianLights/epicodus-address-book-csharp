@@ -26,6 +26,13 @@ namespace AddressBook.Controllers
             return Redirect("/");
         }
 
+        [HttpGet("/contacts/clear")]
+        public ActionResult ClearContacts()
+        {
+            Contact.ClearAllInstances();
+            return Redirect("/");
+        }
+
         [HttpGet("/contacts/{id}")]
         public ActionResult ContactDetails(int id)
         {

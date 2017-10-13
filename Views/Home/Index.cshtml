@@ -2,6 +2,11 @@
 @model Dictionary<string, object>
 
 @{
+  List<Contact> contacts = (List<Contact>)Model["contacts"];
+  Contact focusedContact = (Contact)Model["focused-contact"];
+}
+
+@{
   Layout = "_Layout";
 }
 
@@ -9,11 +14,18 @@
   <div class="jumbotron">
     <h1>Address Book</h1>
   </div>
-  @Html.Partial("Index/ContactList", Model["contacts"])
+  @Html.Partial("Index/ContactList", contacts)
+
+  @if(contacts.Count > 0)
+  {
+    <form action="/contacts/clear" method="get">
+      <button class="btn btn-danger" type="submit" name="clear-button">Clear All</button>
+    </form>
+  }
 
   @Html.Partial("Index/NewContactForm")
-  @if (Model["focused-contact"] != null)
+  @if (focusedContact != null)
   {
-    @Html.Partial("Index/ContactDetails", Model["focused-contact"])
+    @Html.Partial("Index/ContactDetails", focusedContact)
   }
 </div>

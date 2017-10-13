@@ -39,6 +39,11 @@ namespace AddressBook.Models
         {
             return _instances;
         }
+        public static void ClearAllInstances()
+        {
+            _currentlyFocused = null;
+            _instances.Clear();
+        }
         public static Contact GetFocused()
         {
             return _currentlyFocused;
