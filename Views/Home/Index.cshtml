@@ -1,12 +1,6 @@
+@using AddressBook.Models.PageData;
 @using AddressBook.Models.ContactData;
-@model Dictionary<string, object>
-
-@{
-  List<Contact> contacts = (List<Contact>)Model["contacts"];
-  Contact focusedContact = (Contact)Model["focused-contact"];
-  bool contactAdded = (bool)Model["contact-added"];
-  bool contactsCleared = (bool)Model["contacts-cleared"];
-}
+@model IndexModel
 
 @{
   Layout = "_Layout";
@@ -16,31 +10,31 @@
   <div class="jumbotron">
     <h1>Address Book</h1>
   </div>
-  @if (contactAdded == true)
+  @if (@Model.ContactAdded == true)
   {
     <div class="alert alert-success alert-dismissable fade in">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> New contact was added!
     </div>
   }
-  @if (contactsCleared == true)
+  @if (@Model.ContactsCleared == true)
   {
     <div class="alert alert-danger alert-dismissable fade in">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       All contacts removed successfully.
     </div>
   }
-  @Html.Partial("ContactList", contacts)
+  @Html.Partial("ContactList", @Model.Contacts)
 
   <button class="btn btn-info" type="button" name="add-contact-button" data-toggle="modal" data-target="#new-contact-modal">Add Contact</button>
-  @if(contacts.Count > 0)
+  @if(@Model.Contacts.Count > 0)
   {
     <button class="btn btn-danger" type="button" name="clear-button" data-toggle="modal" data-target="#clear-confirmation-modal">Clear All</button>
   }
 
-  @if (focusedContact != null)
+  @if (@Model.FocusedContact != null)
   {
-    @Html.Partial("ContactDetails", focusedContact)
+    @Html.Partial("ContactDetails", @Model.FocusedContact)
   }
 </div>
 

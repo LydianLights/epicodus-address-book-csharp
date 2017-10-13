@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using AddressBook.Models.ContactData;
 using System.Collections.Generic;
+using AddressBook.Models.ContactData;
+using AddressBook.Models.PageData;
 
 namespace AddressBook.Controllers
 {
@@ -9,33 +10,23 @@ namespace AddressBook.Controllers
         [HttpGet("/")]
         public ActionResult Index()
         {
-            Dictionary<string, object> model = new Dictionary<string, object>{};
-            model.Add("contacts", Contact.GetAllInstances());
-            model.Add("focused-contact", Contact.GetFocused());
-            model.Add("contact-added", false);
-            model.Add("contacts-cleared", false);
+            IndexModel model = new IndexModel();
             return View(model);
         }
 
         [HttpGet("/contacts/add/success"), ActionName("Index")]
         public ActionResult ContactAddSuccess()
         {
-            Dictionary<string, object> model = new Dictionary<string, object>{};
-            model.Add("contacts", Contact.GetAllInstances());
-            model.Add("focused-contact", Contact.GetFocused());
-            model.Add("contact-added", true);
-            model.Add("contacts-cleared", false);
+            IndexModel model = new IndexModel();
+            model.ContactAdded = true;
             return View(model);
         }
 
         [HttpGet("/contacts/clear/success"), ActionName("Index")]
         public ActionResult ContactsClearSuccess()
         {
-            Dictionary<string, object> model = new Dictionary<string, object>{};
-            model.Add("contacts", Contact.GetAllInstances());
-            model.Add("focused-contact", Contact.GetFocused());
-            model.Add("contact-added", false);
-            model.Add("contacts-cleared", true);
+            IndexModel model = new IndexModel();
+            model.ContactsCleared = true;
             return View(model);
         }
 
