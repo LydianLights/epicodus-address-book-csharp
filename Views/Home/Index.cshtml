@@ -18,9 +18,7 @@
 
   @if(contacts.Count > 0)
   {
-    <form action="/contacts/clear" method="get">
-      <button class="btn btn-danger" type="submit" name="clear-button">Clear All</button>
-    </form>
+    <button class="btn btn-danger" type="button" name="clear-button" data-toggle="modal" data-target="#clear-confirmation-modal">Clear All</button>
   }
 
   @Html.Partial("Index/NewContactForm")
@@ -29,3 +27,5 @@
     @Html.Partial("Index/ContactDetails", focusedContact)
   }
 </div>
+
+@Html.Partial("Modals/ClearConfirmationModal")
