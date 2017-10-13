@@ -5,6 +5,7 @@
   string cityId = "contact-city";
   string stateId = "contact-state";
   string zipCodeId = "contact-zip-code";
+  string phoneNumberId = "contact-phone-number";
 }
 
 <form action="/contacts/add" method="post">
@@ -15,6 +16,10 @@
   <div class="form-group">
     <label class="form-label" for="@lastNameId">Last Name:</label>
     <input class="form-control" type="text" id="@lastNameId" name="@lastNameId">
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="@phoneNumberId">Phone Number:</label>
+    <input class="form-control" type="text" id="@phoneNumberId" name="@phoneNumberId">
   </div>
   <div class="form-group">
     <label class="form-label" for="@streetAddressId">Street:</label>

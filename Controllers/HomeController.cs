@@ -24,17 +24,20 @@ namespace AddressBook.Controllers
             string city = Request.Form["contact-city"];
             string state = Request.Form["contact-state"];
             string zipCode = Request.Form["contact-zip-code"];
+            string phoneNumber = Request.Form["contact-phone-number"];
             if (
                 firstName != "" &&
                 lastName != "" &&
                 streetAddress != "" &&
                 city != "" &&
                 state != "" &&
-                zipCode != "")
+                zipCode != "" &&
+                phoneNumber != "")
             {
-                Name name = new Name(firstName, lastName);
-                Address address = new Address(streetAddress, city, state, zipCode);
-                Contact newContact = new Contact(name, address);
+                Name contactName = new Name(firstName, lastName);
+                PhoneNumber contactPhoneNumber = new PhoneNumber (phoneNumber);
+                Address contactAddress = new Address(streetAddress, city, state, zipCode);
+                Contact newContact = new Contact(contactName, contactPhoneNumber, contactAddress);
             }
             return Redirect("/");
         }
