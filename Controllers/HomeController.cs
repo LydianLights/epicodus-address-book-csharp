@@ -12,6 +12,17 @@ namespace AddressBook.Controllers
             Dictionary<string, object> model = new Dictionary<string, object>{};
             model.Add("contacts", Contact.GetAllInstances());
             model.Add("focused-contact", Contact.GetFocused());
+            model.Add("contact-added", false);
+            return View(model);
+        }
+
+        [HttpGet("/contacts/add/success"), ActionName("Index")]
+        public ActionResult IndexAddSuccess()
+        {
+            Dictionary<string, object> model = new Dictionary<string, object>{};
+            model.Add("contacts", Contact.GetAllInstances());
+            model.Add("focused-contact", Contact.GetFocused());
+            model.Add("contact-added", true);
             return View(model);
         }
 
@@ -38,6 +49,7 @@ namespace AddressBook.Controllers
                 PhoneNumber contactPhoneNumber = new PhoneNumber (phoneNumber);
                 Address contactAddress = new Address(streetAddress, city, state, zipCode);
                 Contact newContact = new Contact(contactName, contactPhoneNumber, contactAddress);
+                return Redirect("/contacts/add/success");
             }
             return Redirect("/");
         }

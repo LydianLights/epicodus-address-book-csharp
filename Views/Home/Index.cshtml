@@ -4,6 +4,7 @@
 @{
   List<Contact> contacts = (List<Contact>)Model["contacts"];
   Contact focusedContact = (Contact)Model["focused-contact"];
+  bool contactAdded = (bool)Model["contact-added"];
 }
 
 @{
@@ -14,10 +15,13 @@
   <div class="jumbotron">
     <h1>Address Book</h1>
   </div>
-  <div class="alert alert-success alert-dismissable">
+  @if (contactAdded == true)
+  {
+    <div class="alert alert-success alert-dismissable fade in">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> New contact was added!
-  </div>
+    </div>
+  }
   @Html.Partial("ContactList", contacts)
 
   <button class="btn btn-info" type="button" name="add-contact-button" data-toggle="modal" data-target="#new-contact-modal">Add Contact</button>
