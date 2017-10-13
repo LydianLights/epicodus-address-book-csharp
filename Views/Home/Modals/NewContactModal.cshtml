@@ -1,3 +1,21 @@
+<script>
+  $(document).ready(function() {
+    var submitConfirmed = false;
+    $("#new-contact-modal form").submit(function(event) {
+      if (submitConfirmed === false) {
+        event.preventDefault();
+        submitConfirmed = true;
+        $("#new-contact-modal").modal("hide");
+      }
+    });
+    $("#new-contact-modal").on("hidden.bs.modal", function() {
+      if (submitConfirmed === true) {
+        $("#new-contact-modal form").submit();
+      }
+    });
+  });
+</script>
+
 @{
   string nameId = "contact-name";
 }
@@ -10,7 +28,7 @@
         <h3 class="modal-title">Add a new contact</h3>
       </div>
       <div class="modal-body">
-        <form class="new-contact-form" action="/contacts/add" method="post">
+        <form action="/contacts/add" method="post">
           <div class="form-group">
             <label class="form-label" for="@nameId">Name:</label>
             <input class="form-control" type="text" id="@nameId" name="@nameId" autofocus>
