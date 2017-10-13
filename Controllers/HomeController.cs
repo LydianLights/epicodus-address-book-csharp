@@ -13,16 +13,29 @@ namespace AddressBook.Controllers
             model.Add("contacts", Contact.GetAllInstances());
             model.Add("focused-contact", Contact.GetFocused());
             model.Add("contact-added", false);
+            model.Add("contacts-cleared", false);
             return View(model);
         }
 
         [HttpGet("/contacts/add/success"), ActionName("Index")]
-        public ActionResult IndexAddSuccess()
+        public ActionResult ContactAddSuccess()
         {
             Dictionary<string, object> model = new Dictionary<string, object>{};
             model.Add("contacts", Contact.GetAllInstances());
             model.Add("focused-contact", Contact.GetFocused());
             model.Add("contact-added", true);
+            model.Add("contacts-cleared", false);
+            return View(model);
+        }
+
+        [HttpGet("/contacts/clear/success"), ActionName("Index")]
+        public ActionResult ContactsClearSuccess()
+        {
+            Dictionary<string, object> model = new Dictionary<string, object>{};
+            model.Add("contacts", Contact.GetAllInstances());
+            model.Add("focused-contact", Contact.GetFocused());
+            model.Add("contact-added", false);
+            model.Add("contacts-cleared", true);
             return View(model);
         }
 
@@ -58,7 +71,7 @@ namespace AddressBook.Controllers
         public ActionResult ClearContacts()
         {
             Contact.ClearAllInstances();
-            return Redirect("/");
+            return Redirect("/contacts/clear/success");
         }
 
         [HttpGet("/contacts/{id}")]

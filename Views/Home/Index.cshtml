@@ -5,6 +5,7 @@
   List<Contact> contacts = (List<Contact>)Model["contacts"];
   Contact focusedContact = (Contact)Model["focused-contact"];
   bool contactAdded = (bool)Model["contact-added"];
+  bool contactsCleared = (bool)Model["contacts-cleared"];
 }
 
 @{
@@ -18,8 +19,15 @@
   @if (contactAdded == true)
   {
     <div class="alert alert-success alert-dismissable fade in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> New contact was added!
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> New contact was added!
+    </div>
+  }
+  @if (contactsCleared == true)
+  {
+    <div class="alert alert-danger alert-dismissable fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      All contacts removed successfully.
     </div>
   }
   @Html.Partial("ContactList", contacts)
